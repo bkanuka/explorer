@@ -4,7 +4,7 @@
     -# Search
     .row
       .columns.large-5.small-12.right
-        %form.row.collapse{action: '/search', method: 'GET'}
+        %form.row.collapse{action: 'search', method: 'GET'}
           .columns.large-9
             %input{type: 'search', name: 'search', value: search}
             %input{type: 'hidden', name: 'path', value: path}
@@ -14,7 +14,7 @@
     %ul.breadcrumbs
       - each b in breadcrumb
         %li
-          %a{href: '/?path=' + b.path}= b.name
+          %a{href: '?path=' + b.path}= b.name
       
     -# Sort
     %form#options{method: 'GET', action: ''}
@@ -70,7 +70,7 @@
                   %i.icon-folder
                   = item.name
               - else
-                %a{href: '/download?path='+encodeURIComponent(item.path)+'&key='+user.key}
+                %a{href: 'download?path='+encodeURIComponent(item.path)+'&key='+user.key}
                   %i{class: 'icon-file-' + item.type}
                   = item.name
                   - if (search)
